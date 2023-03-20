@@ -1,8 +1,13 @@
-const getGreetings = () => async(dispatch) => {
-  await fetch ('http://localhost:3001/greeting/').then(response => response.json())
-  .then(data => {
-    dispatch({ type: "GET_GREETING", payload: data[0] });
-  })
-}
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-export default getGreetings;
+export const GET_GREETING = 'get_greeting';
+
+const url = 'http://localhost:3000/api/greetings';
+
+const getGreeting = createAsyncThunk(GET_GREETING, async () => {
+  const { data } = await axios.get(url);
+  return data;
+});
+
+export default getGreeting;

@@ -1,8 +1,15 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 import greetingReducer from "./reducer";
 
-const store = configureStore({
-  reducer: combineReducers({greeting: greetingReducer}), middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
-})
 
-export default store
+/* eslint-disable comma-dangle */
+
+export default configureStore(
+  {
+    reducer: {
+      greetingDetails: greetingReducer,
+    },
+  },
+  applyMiddleware(logger)
+);
