@@ -1,8 +1,8 @@
-import { GET_GREETING } from "./Api";
+import { GET_GREETING } from './Api';
 
 const initialState = {
   greeting: {},
-  isLoading: false
+  isLoading: false,
 };
 
 const greetingReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const greetingReducer = (state = initialState, action) => {
 
     case `${GET_GREETING}/pending`:
       return { ...state, isLoading: true };
-  
+
     case `${GET_GREETING}/rejected`:
       return { ...state, isLoading: false };
 
@@ -23,4 +23,4 @@ const greetingReducer = (state = initialState, action) => {
   }
 };
 
-export default greetingReducer
+export default greetingReducer;

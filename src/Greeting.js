@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
-import { useDispatch, useSelector } from "react-redux"
-import getGreetings from "./redux/Api";
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import getGreetings from './redux/Api';
 
 const Greeting = () => {
   const dispatch = useDispatch();
@@ -11,11 +10,14 @@ const Greeting = () => {
   }, [dispatch]);
 
   const greet = useSelector((state) => state.greetingDetails.greeting);
-  return(
+  return (
     <div>
-      <h1>Hey, {greet.greeting}</h1>
+      <h1>
+        Hey,
+        {greet.greeting}
+      </h1>
     </div>
-  )
-}
+  );
+};
 
 export default Greeting;
